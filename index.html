@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco Transformacion Pipeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #0a2e1a;
+      --green-mid: #1a5c34;
+      --green-accent: #2dbd6e;
+      --green-light: #a8f0c6;
+      --cream: #f5f0e8;
+      --text: #1a1a1a;
+      --muted: #5a6a62;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: var(--green-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--green-light);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-accent);
+    }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,189,110,0.12) 0%, transparent 70%),
+        var(--cream);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--green-mid);
+      color: var(--green-light);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--green-dark);
+      max-width: 720px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 span {
+      color: var(--green-accent);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 3rem;
+    }
+
+    /* LEGAL CARDS */
+    .legal-section {
+      padding: 4rem 2rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1.5px solid rgba(45,189,110,0.2);
+      border-radius: 16px;
+      padding: 2.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(10,46,26,0.1);
+      border-color: var(--green-accent);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-dark);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-accent);
+      margin-top: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.75rem;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: var(--green-light);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Eco Transformacion Pipeline</span>
+    <ul class="nav-links">
+      <li><a href="terms.html">Terms of Service</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="mailto:societyrevolution4@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <span class="badge">TikTok Content Tool</span>
+    <h1>Eco Transformacion <span>Pipeline</span></h1>
+    <p class="subtitle">
+      A developer tool for managing and publishing content to TikTok via the official TikTok API. Built by Society Revolution.
+    </p>
+  </section>
+
+  <section class="legal-section">
+    <p class="section-label">Legal &amp; Compliance</p>
+    <div class="cards">
+
+      <a href="terms.html" class="card">
+        <div class="card-icon">📄</div>
+        <h2>Terms of Service</h2>
+        <p>Read the terms and conditions governing your use of Eco Transformacion Pipeline, including acceptable use, disclaimers, and limitations of liability.</p>
+        <span class="card-link">Read Terms →</span>
+      </a>
+
+      <a href="privacy.html" class="card">
+        <div class="card-icon">🔒</div>
+        <h2>Privacy Policy</h2>
+        <p>Learn how Eco Transformacion Pipeline collects, uses, and protects your data when you connect your TikTok account through our application.</p>
+        <span class="card-link">Read Policy →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Eco Transformacion Pipeline · Developed by Society Revolution ·
+      <a href="mailto:societyrevolution4@gmail.com">societyrevolution4@gmail.com</a>
+    </p>
+    <p style="margin-top:0.4rem;">
+      <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
